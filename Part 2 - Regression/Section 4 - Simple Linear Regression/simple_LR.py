@@ -35,3 +35,10 @@ plt.plot(x_train, regressor.predict(x_train))
 plt.title("Salary vs Experience (Training set)")
 plt.xlabel('Experience')
 plt.ylabel("Salary")
+
+# Visulalising the test set results
+plt.scatter(x_test, y_test, color='red')
+plt.plot(x_train, regressor.predict(x_train))
+plt.title("Salary vs Experience (Test set)")
+plt.xlabel('Experience')
+plt.ylabel("Salary")
