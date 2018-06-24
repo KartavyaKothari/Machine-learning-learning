@@ -15,3 +15,7 @@ test_set = subset(dataset,split == FALSE)
 # test_set[,2:3] = scale(test_set[,2:3])
 
 #Regressor fitting
+regressor = lm(formula = Salary ~ YearsExperience, 
+               data = training_set)
+
+y_pred = predict(regressor, newdata = test_set)
