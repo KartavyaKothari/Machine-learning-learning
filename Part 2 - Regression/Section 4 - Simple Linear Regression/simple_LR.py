@@ -28,3 +28,10 @@ regressor.fit(x_train,y_train)
 
 #Askinf the model to predict the test results
 y_pred = regressor.predict(x_test)
+
+# Visulalising the training set results
+plt.scatter(x_train, y_train, color='red')
+plt.plot(x_train, regressor.predict(x_train))
+plt.title("Salary vs Experience (Training set)")
+plt.xlabel('Experience')
+plt.ylabel("Salary")
