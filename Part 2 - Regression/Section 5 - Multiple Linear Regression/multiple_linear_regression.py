@@ -43,3 +43,39 @@ regressor.fit(x_train,y_train)
 
 # Predicting test results
 y_pred = regressor.predict(x_test)
+
+#Making the model more robust using backward elimination
+#Adding a ones column to facilitate the constant in linear regression (Needed for backward elimination)
+import statsmodels.formula.api as sm
+x = np.append(arr = np.ones((50,1)).astype(int), values = x, axis = 1)
+
+x_opt = x[:, [0,1,2,3,4,5]]
+regressor_OLS = sm.OLS(endog = y, exog = x_opt).fit()
+regressor_OLS.summary()
+
+x_opt = x[:, [0,1,3,4,5]]
+regressor_OLS = sm.OLS(endog = y, exog = x_opt).fit()
+regressor_OLS.summary()
+
+x_opt = x[:, [0,3,4,5]]
+regressor_OLS = sm.OLS(endog = y, exog = x_opt).fit()
+regressor_OLS.summary()
+
+x_opt = x[:, [0,3,5]]
+regressor_OLS = sm.OLS(endog = y, exog = x_opt).fit()
+regressor_OLS.summary()
+
+x_opt = x[:, [0,3]]
+regressor_OLS = sm.OLS(endog = y, exog = x_opt).fit()
+regressor_OLS.summary()
+
+
+
+
+
+
+
+
+
+
+
