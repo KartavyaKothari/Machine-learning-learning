@@ -24,9 +24,18 @@ y_pred = predict(regressor, newdata = test_set)
 #install.packages('ggplot2')
 library(ggplot2)
 
+# Training set
 ggplot()+
   geom_point(aes(x=training_set$YearsExperience,y=training_set$Salary),color='red')+
   geom_line(aes(x = training_set$YearsExperience,y=predict(regressor, newdata = training_set)),color='blue')+
+  ggtitle("Salary vs Experience (Training set)")+
+  xlab("Experience")+
+  ylab("Salary")
+
+# Test set
+ggplot()+
+  geom_point(aes(x=test_set$YearsExperience,y=test_set$Salary),color='red')+
+  geom_line(aes(x = test_set$YearsExperience,y=predict(regressor, newdata = test_set)),color='blue')+
   ggtitle("Salary vs Experience (Training set)")+
   xlab("Experience")+
   ylab("Salary")
